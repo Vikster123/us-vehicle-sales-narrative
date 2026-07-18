@@ -12,7 +12,7 @@
   - Pointer events change state.hoveredPoint and reveal tooltips
 */
 
-const DATA_PATH = "data/us_car_model_sales_2013_2022.csv";
+const DATA_PATH = "./us_car_model_sales_2013_2022.csv";
 const state = {
   scene: 0,
   selectedBrand: null,
