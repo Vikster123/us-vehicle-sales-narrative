@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive D3 narrative visualization of U.S. vehicle sales by model from 2013 to 2022." />
+  <title>Ten Years on the American Road</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">U.S. vehicle sales by model · 2013–2022</p>
+        <h1>Ten Years on the American Road</h1>
+        <p class="deck">A guided look at market momentum, model leadership, and the vehicles that gained or lost ground.</p>
+      </div>
+      <div class="source-note">
+        <span>Built with D3.js</span>
+        <a href="https://www.kaggle.com/datasets/jane92792/us-vehicle-sales-by-model" target="_blank" rel="noreferrer">Dataset source</a>
+      </div>
+    </header>
+
+
+    <section class="story-card" aria-live="polite">
+      <div class="scene-copy">
+        <div class="scene-heading-row">
+          <span id="scene-kicker" class="scene-kicker"></span>
+          <span id="scene-count" class="scene-count"></span>
+        </div>
+        <h2 id="scene-title"></h2>
+        <p id="scene-description" class="scene-description"></p>
+      </div>
+
+      <div id="explorer-controls" class="explorer-controls" hidden>
+        <label>
+          Brand
+          <select id="brand-select" aria-label="Choose a vehicle brand"></select>
+        </label>
+        <fieldset>
+          <legend>Models to compare</legend>
+          <div id="model-options" class="model-options"></div>
+        </fieldset>
+      </div>
+
+      <div id="chart-wrap" class="chart-wrap">
+        <svg id="chart" role="img" aria-labelledby="scene-title scene-description"></svg>
+        <div id="tooltip" class="tooltip" hidden></div>
+      </div>
+
+      <div id="scene-insight" class="scene-insight"></div>
+    </section>
+
+    <nav class="story-nav" aria-label="Narrative controls">
+      <button id="back-button" class="nav-button secondary" type="button">← Back</button>
+      <div id="progress-dots" class="progress-dots" aria-label="Scene progress"></div>
+      <button id="next-button" class="nav-button primary" type="button">Next →</button>
+    </nav>
+
+    <footer>
+      <p>Hover over marks for exact values. In the final scene, use the brand menu and model checkboxes to explore.</p>
+    </footer>
+  </main>
+
+  <script src="d3.v7.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
